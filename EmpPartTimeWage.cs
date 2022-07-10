@@ -6,23 +6,33 @@ using System.Threading.Tasks;
 
 namespace DNine_EmployeeWage
 {
-    public class DailyEmpWages
+    public class EmpPartTimeWage
     {
         int WagePerHrs = 20;
         int FullTime = 8;
+        int partTime = 4;
         int NoWork = 0;
 
-        public DailyEmpWages() // constructor
+        public void display() // non- static method
+
         {
+
             Random ran = new Random();
 
-            int AttenCheck = ran.Next(5, 10);
+            int AttenCheck = ran.Next(0, 9);
 
             if (AttenCheck == FullTime)
             {
                 Console.WriteLine("Emp is Present");
-                Console.WriteLine("Employee daily wages is- : " + (WagePerHrs * FullTime));
+                Console.WriteLine("Employee fulltime wage is :- " + (WagePerHrs * FullTime));
             }
+
+            else if (AttenCheck == partTime)
+            {
+                Console.WriteLine("Emp is present for HalfDay");
+                Console.WriteLine("Employee part time wage is :- " + (WagePerHrs * partTime));
+            }
+
             else
             {
                 Console.WriteLine("Emp is Absent");
@@ -31,10 +41,8 @@ namespace DNine_EmployeeWage
         }
         public static void Main(string[] args)
         {
-            DailyEmpWages wages = new DailyEmpWages();
-
+            EmpPartTimeWage wages = new EmpPartTimeWage();
+            wages.display();
         }
     }
-
-}  
-
+}
